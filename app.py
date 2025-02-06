@@ -5,7 +5,7 @@ from PIL import Image
 import gdown
 import os
 
-file_id = 1gwbsEcekJQvpD_Ki5OVgx0LDsr8iuwpU
+file_id = "1gwbsEcekJQvpD_Ki5OVgx0LDsr8iuwpU"
 url = https://drive.google.com/file/d/1gwbsEcekJQvpD_Ki5OVgx0LDsr8iuwpU/view?usp=sharing
 model_path = "trained_potato_plant_disease_model-1.keras"
 
