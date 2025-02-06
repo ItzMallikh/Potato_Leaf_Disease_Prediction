@@ -5,13 +5,13 @@ from PIL import Image
 import gdown
 import os
 
-# file_id =
-# url =
-# model_path =
+file_id = 1gwbsEcekJQvpD_Ki5OVgx0LDsr8iuwpU
+url = https://drive.google.com/file/d/1gwbsEcekJQvpD_Ki5OVgx0LDsr8iuwpU/view?usp=sharing
+model_path = "trained_potato_plant_disease_model-1.keras"
 
-# if not os.path.exists(model_path):
-#     st.warning("Downloading Model form Google Drive...")
-#     gdown.download(url,model_path,quiet=False)
+if not os.path.exists(model_path):
+    st.warning("Downloading Model form Google Drive...")
+    gdown.download(url,model_path,quiet=False)
 
 
 @st.cache_resource()
@@ -41,11 +41,6 @@ st.set_page_config(page_title="Potato Leaf Disease Detection", page_icon="🌱",
 
 st.sidebar.title("🌱 Potato Plant Disease Detection")
 app_mode = st.sidebar.radio('Select Page', ['🏠 Home', '🔍 Disease Recognition'])
-
-
-# from PIL import Image
-# img=Image.open('Diseases.jpg')
-# st.image('Diseases.jpg',use_container_width=True)
 
 
 
