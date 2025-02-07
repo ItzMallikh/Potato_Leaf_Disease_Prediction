@@ -17,11 +17,16 @@ if not os.path.exists(model_path):
 
 
 
-def load_model():
-    return tf.keras.models.load_model(model_path)
+# def load_model():
+    
+#     return tf.keras.models.load_model(model_path)
 
 def model_prediction(test_image):
-    model=load_model()
+    try:
+        model = tf.keras.models.load_model(model_path)
+        st.success("✅ Model loaded successfully!")
+     except Exception as e:
+        st.error(f"❌ Error loading model: {e}")
     image=tf.keras.preprocessing.image.load_img(test_image,target_size=(128,128))
     input_arr=tf.keras.preprocessing.image.img_to_array(image)
     input_arr=np.array([input_arr])
