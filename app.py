@@ -15,7 +15,7 @@ if not os.path.exists(model_path):
     gdown.download(url,model_path,quiet=False)
 
 
-#@st.cache_resource()
+@st.cache_resource()
 def load_model():
     return tf.keras.models.load_model("trained_potato_plant_disease_model-1.keras")
 
