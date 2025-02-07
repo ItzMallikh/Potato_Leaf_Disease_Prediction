@@ -7,6 +7,7 @@ import os
 
 file_id = "1gwbsEcekJQvpD_Ki5OVgx0LDsr8iuwpU"
 url = "https://drive.google.com/file/d/1gwbsEcekJQvpD_Ki5OVgx0LDsr8iuwpU/view?usp=sharing"
+       
 model_path = "trained_potato_plant_disease_model-1.keras"
 
 if not os.path.exists(model_path):
@@ -14,7 +15,7 @@ if not os.path.exists(model_path):
     gdown.download(url,model_path,quiet=False)
 
 
-@st.cache_resource()
+#@st.cache_resource()
 def load_model():
     return tf.keras.models.load_model("trained_potato_plant_disease_model-1.keras")
 
