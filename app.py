@@ -15,8 +15,8 @@ if not os.path.exists(model_path):
     st.warning("Downloading Model form Google Drive...")
     gdown.download(url,model_path,quiet=False)
 
-st.write("Files in current directory:")
-st.write(os.listdir())
+st.write("Current Directory:", os.getcwd())
+st.write("Files in Directory:", os.listdir())
 
 def load_model():
     
