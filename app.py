@@ -9,10 +9,11 @@ st.set_page_config(page_title="Potato Leaf Disease Detection", page_icon="🌱",
 
 
 file_id = "1L_Btmvlo4YHIE6wV-WgOkWdndiD_ng4p"
-url = f"https://drive.google.cgdowom/uc?id={file_id}"
+url = f"https://drive.google.com/uc?id={file_id}"
        
        
 model_path = "trained_potato_plant_disease_model-1.keras"
+model = None
 
 if not os.path.exists(model_path):
     st.warning("Downloading Model form Google Drive...")
@@ -29,7 +30,16 @@ else:
 
 def load_model():
     
-    return tf.keras.models.load_model(model_path)
+    
+    global model
+    if model is None:
+        try:
+            model = tf.keras.models.load_model(model_path)
+            st.success("✅ Model loaded successfully!")
+        except Exception as e:
+            st.error(f"❌ Error loading model: {e}")
+    return model
+
 
 def model_prediction(test_image):
     
