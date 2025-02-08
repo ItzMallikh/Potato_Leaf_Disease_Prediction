@@ -23,21 +23,21 @@ st.write(os.listdir())
 
 if os.path.exists(model_path):
     size = os.path.getsize(model_path)
-    print(f"File Size: {size} bytes")
+    st.write(f"File Size: {size} bytes")
 
     # Read the first few bytes
     with open(model_path, "rb") as f:
         content = f.read(100)
 
-    print(f"First 100 bytes: {content[:100]}")
+    st.write(f"First 100 bytes: {content[:100]}")
 
     # Check if it's an HTML file
     if b"<!DOCTYPE html" in content or b"<html" in content:
-        print("⚠️ ERROR: The file is an HTML page, not a Keras model!")
+        st.write("⚠️ ERROR: The file is an HTML page, not a Keras model!")
     else:
-        print("✅ File is not HTML, but may still be corrupted.")
+        st.write("✅ File is not HTML, but may still be corrupted.")
 else:
-    print("❌ File not found!")
+    st.write("❌ File not found!")
 
 
 # if not os.path.exists(model_path):
