@@ -6,7 +6,7 @@ import gdown
 import os
 
 file_id = "1L_Btmvlo4YHIE6wV-WgOkWdndiD_ng4p"
-url = f"https://drive.google.com/uc?id={file_id}"
+url = f"https://drive.google.cgdowom/uc?id={file_id}"
        
        
 model_path = "trained_potato_plant_disease_model-1.keras"
@@ -15,15 +15,16 @@ if not os.path.exists(model_path):
     st.warning("Downloading Model form Google Drive...")
     gdown.download(url,model_path,quiet=False)
 
+st.write("Files in current directory:")
+st.write(os.listdir())
 
-
-# def load_model():
+def load_model():
     
-#     return tf.keras.models.load_model(model_path)
+    return tf.keras.models.load_model(model_path)
 
 def model_prediction(test_image):
     try:
-        model = tf.keras.models.load_model(model_path)
+        model = load_model()
         st.success("✅ Model loaded successfully!")
     except Exception as e:
         st.error(f"❌ Error loading model: {e}")
