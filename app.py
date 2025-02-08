@@ -5,6 +5,9 @@ from PIL import Image
 import gdown
 import os
 
+st.set_page_config(page_title="Potato Leaf Disease Detection", page_icon="🌱", layout="wide")
+
+
 file_id = "1L_Btmvlo4YHIE6wV-WgOkWdndiD_ng4p"
 url = f"https://drive.google.cgdowom/uc?id={file_id}"
        
@@ -51,7 +54,7 @@ disease_info = {
     "Potato_Healthy": "✅ Your plant is healthy! Keep monitoring for any symptoms."
 }
 
-st.set_page_config(page_title="Potato Leaf Disease Detection", page_icon="🌱", layout="wide")
+# st.set_page_config(page_title="Potato Leaf Disease Detection", page_icon="🌱", layout="wide")
 
 
 st.sidebar.title("🌱 Potato Plant Disease Detection")
