@@ -21,17 +21,24 @@ st.write(os.listdir())
 #     st.warning("Downloading Model form Google Drive...")
 #     gdown.download(url,model_path,quiet=False)
 
-if os.path.exists("trained_potato_plant_disease_model-1.keras"):
-    st.success("✅ Model file found!")
-    st.write(f"File size: {os.path.getsize('trained_potato_plant_disease_model-1.keras')} bytes")
-else:
-    st.error("❌ Model file NOT found!")
+if os.path.exists(model_path):
+    size = os.path.getsize(model_path)
+    print(f"File Size: {size} bytes")
 
-if os.path.exists("trained_potato_plant_disease_model-1.zip"):
-    st.warning("⚠️ A ZIP file was found! TensorFlow cannot load it directly.")
-    st.write(f"ZIP File size: {os.path.getsize('trained_potato_plant_disease_model-1.zip')} bytes")
+    # Read the first few bytes
+    with open(model_path, "rb") as f:
+        content = f.read(100)
+
+    print(f"First 100 bytes: {content[:100]}")
+
+    # Check if it's an HTML file
+    if b"<!DOCTYPE html" in content or b"<html" in content:
+        print("⚠️ ERROR: The file is an HTML page, not a Keras model!")
+    else:
+        print("✅ File is not HTML, but may still be corrupted.")
 else:
-    st.write("Not a zip file")
+    print("❌ File not found!")
+
 
 # if not os.path.exists(model_path):
 #     st.warning("Downloading Model form Google Drive...")
