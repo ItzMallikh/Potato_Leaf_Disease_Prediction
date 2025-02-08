@@ -14,18 +14,34 @@ url = f"https://drive.google.com/uc?id={file_id}"
        
 model_path = "trained_potato_plant_disease_model-1.keras"
 model = None
+st.write("Checking files in directory...")
+st.write(os.listdir())
 
-if not os.path.exists(model_path):
-    st.warning("Downloading Model form Google Drive...")
-    gdown.download(url,model_path,quiet=False)
+# if not os.path.exists(model_path):
+#     st.warning("Downloading Model form Google Drive...")
+#     gdown.download(url,model_path,quiet=False)
 
-st.write("Current Directory:", os.getcwd())
-st.write("Files in Directory:", os.listdir())
-if os.path.exists(model_path):
-        st.success(f"Model file found: {model_path} ✅")
-        st.write(f"Model file size: {os.path.getsize(model_path)} bytes")
+if os.path.exists("trained_potato_plant_disease_model-1.keras"):
+    st.success("✅ Model file found!")
+    st.write(f"File size: {os.path.getsize('trained_potato_plant_disease_model-1.keras')} bytes")
 else:
-        st.error(f"Model file NOT found: {model_path} ❌")
+    st.error("❌ Model file NOT found!")
+
+if os.path.exists("trained_potato_plant_disease_model-1.zip"):
+    st.warning("⚠️ A ZIP file was found! TensorFlow cannot load it directly.")
+    st.write(f"ZIP File size: {os.path.getsize('trained_potato_plant_disease_model-1.zip')} bytes")
+
+# if not os.path.exists(model_path):
+#     st.warning("Downloading Model form Google Drive...")
+#     gdown.download(url,model_path,quiet=False)
+
+# st.write("Current Directory:", os.getcwd())
+# st.write("Files in Directory:", os.listdir())
+# if os.path.exists(model_path):
+#         st.success(f"Model file found: {model_path} ✅")
+#         st.write(f"Model file size: {os.path.getsize(model_path)} bytes")
+# else:
+#         st.error(f"Model file NOT found: {model_path} ❌")
     
 
 def load_model():
