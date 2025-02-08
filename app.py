@@ -30,6 +30,8 @@ else:
 if os.path.exists("trained_potato_plant_disease_model-1.zip"):
     st.warning("⚠️ A ZIP file was found! TensorFlow cannot load it directly.")
     st.write(f"ZIP File size: {os.path.getsize('trained_potato_plant_disease_model-1.zip')} bytes")
+else:
+    st.write("Not a zip file")
 
 # if not os.path.exists(model_path):
 #     st.warning("Downloading Model form Google Drive...")
