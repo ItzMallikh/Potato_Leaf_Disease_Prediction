@@ -17,12 +17,19 @@ if not os.path.exists(model_path):
 
 st.write("Current Directory:", os.getcwd())
 st.write("Files in Directory:", os.listdir())
+if os.path.exists(model_path):
+        st.success(f"Model file found: {model_path} ✅")
+        st.write(f"Model file size: {os.path.getsize(model_path)} bytes")
+else:
+        st.error(f"Model file NOT found: {model_path} ❌")
+    
 
 def load_model():
     
     return tf.keras.models.load_model(model_path)
 
 def model_prediction(test_image):
+    
     try:
         model = load_model()
         st.success("✅ Model loaded successfully!")
