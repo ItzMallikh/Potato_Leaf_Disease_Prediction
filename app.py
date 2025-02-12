@@ -52,7 +52,7 @@ if not os.path.exists(model_path):
 # else:
 #         st.error(f"Model file NOT found: {model_path} ❌")
     
-
+model=None
 def load_model():
     
     
