@@ -13,45 +13,11 @@ url = f"https://drive.google.com/uc?id={file_id}"
        
        
 model_path = "trained_potato_plant_disease_model-1.keras"
-# model = None
-# st.write("Checking files in directory...")
-# st.write(os.listdir())
 
-# if not os.path.exists(model_path):
-#     st.warning("Downloading Model form Google Drive...")
-#     gdown.download(url,model_path,quiet=False)
-
-# if os.path.exists(model_path):
-#     size = os.path.getsize(model_path)
-#     st.write(f"File Size: {size} bytes")
-
-#     # Read the first few bytes
-#     with open(model_path, "rb") as f:
-#         content = f.read(100)
-
-#     st.write(f"First 100 bytes: {content[:100]}")
-
-#     # Check if it's an HTML file
-#     if b"<!DOCTYPE html" in content or b"<html" in content:
-#         st.write("⚠️ ERROR: The file is an HTML page, not a Keras model!")
-#     else:
-#         st.write("✅ File is not HTML, but may still be corrupted.")
-# else:
-#     st.write("❌ File not found!")
-
-st.write("Below one not executed if model already have")
 if not os.path.exists(model_path):
     st.warning("Downloading Model form Google Drive...")
     gdown.download(url, model_path, quiet=False, fuzzy=True)
 
-# st.write("Current Directory:", os.getcwd())
-# st.write("Files in Directory:", os.listdir())
-# if os.path.exists(model_path):
-#         st.success(f"Model file found: {model_path} ✅")
-#         st.write(f"Model file size: {os.path.getsize(model_path)} bytes")
-# else:
-#         st.error(f"Model file NOT found: {model_path} ❌")
-    
 model=None
 def load_model():
     
@@ -82,7 +48,6 @@ disease_info = {
     "Potato_Healthy": "✅ Your plant is healthy! Keep monitoring for any symptoms."
 }
 
-# st.set_page_config(page_title="Potato Leaf Disease Detection", page_icon="🌱", layout="wide")
 
 
 st.sidebar.title("🌱 Potato Plant Disease Detection")
